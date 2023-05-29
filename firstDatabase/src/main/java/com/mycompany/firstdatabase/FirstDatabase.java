@@ -8,7 +8,5 @@ package com.mycompany.firstdatabase;
  */
 public class FirstDatabase {
 
-    public static void main(String[] args) {
-        
-    }
+    
 }

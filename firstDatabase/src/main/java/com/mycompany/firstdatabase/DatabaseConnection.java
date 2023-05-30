@@ -6,6 +6,7 @@ package com.mycompany.firstdatabase;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 /**
@@ -26,10 +27,27 @@ public class DatabaseConnection {
         }
     }
     
+    //used to connect to sql database
     public Connection getConnection() {
         return connection;
     }
     
+    //used to excecute SQL commands 
+    public void insertEmployee(String firstName, String lastName, int employeeID) {
+        try {
+            String sql = "INSERT INTO Employees (first_name, last_name, employee_id) VALUES (?, ?, ?)";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, firstName);
+            statement.setString(2, lastName);
+            statement.setInt(3, employeeID);
+            statement.executeUpdate();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    //used to disconnect from database
     public void closeConnection() {
         try {
             connection.close();

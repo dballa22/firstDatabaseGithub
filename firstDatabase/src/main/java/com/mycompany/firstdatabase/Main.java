@@ -4,7 +4,8 @@
  */
 package com.mycompany.firstdatabase;
 
-import java.sql.Connection;
+
+import java.util.Scanner;
 
 /**
  *
@@ -13,11 +14,14 @@ import java.sql.Connection;
 public class Main {
 
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
         DatabaseConnection databaseConnection = new DatabaseConnection();
+        FirstDatabase database = new FirstDatabase(scanner, databaseConnection);
+        UI userInterface = new UI(scanner, database);
         
-        //Use the connection
-        Connection connection = databaseConnection.getConnection();
-        databaseConnection.closeConnection();
+        userInterface.startUI(scanner);
+        
+
     }
 
 }

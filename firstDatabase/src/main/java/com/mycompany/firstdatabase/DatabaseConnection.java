@@ -32,7 +32,7 @@ public class DatabaseConnection {
         return connection;
     }
     
-    //used to excecute SQL commands 
+    //uses SQL to add an employee to database
     public void insertEmployee(String firstName, String lastName, int employeeID) {
         try {
             String sql = "INSERT INTO Employees (first_name, last_name, employee_id) VALUES (?, ?, ?)";
@@ -42,6 +42,27 @@ public class DatabaseConnection {
             statement.setInt(3, employeeID);
             statement.executeUpdate();
             statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    //uses SQL to delete employee from database
+    public void deleteEmployee(int employeeID) {
+        try {
+            String sql = "DELETE FROM Employees WHERE employee_id = ?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            
+            statement.setInt(1, employeeID);
+            int rowsAffected = statement.executeUpdate();
+            
+            if (rowsAffected > 0) {
+                System.out.println("Employee was sucessfully deleted.");
+            } else {
+                System.out.println("Employee with ID " + employeeID + " was not found.");
+            }
+            
+            statement.close();           
         } catch (SQLException e) {
             e.printStackTrace();
         }

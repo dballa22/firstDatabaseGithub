@@ -70,7 +70,10 @@ public class UI {
     }
     
     public void deleteEmployee(Scanner scanner) {
+        System.out.println("Enter the ID of the employee to be deleted from the system:");
+        int employeeID = scanner.nextInt();
         
+        this.database.delete(employeeID);
     }
     
     

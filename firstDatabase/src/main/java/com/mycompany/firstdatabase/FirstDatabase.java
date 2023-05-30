@@ -27,6 +27,10 @@ public class FirstDatabase {
         
     } 
     
+    public void delete(int employeeID) {
+        databaseConnection.deleteEmployee(employeeID);
+    }
+    
     public void exit() {
         databaseConnection.closeConnection();
     }

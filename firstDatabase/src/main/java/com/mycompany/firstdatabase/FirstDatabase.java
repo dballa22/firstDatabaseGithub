@@ -5,10 +5,7 @@ package com.mycompany.firstdatabase;
  * @author Drew
  */
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+
 import java.util.Scanner;
 
 
@@ -29,6 +26,10 @@ public class FirstDatabase {
     
     public void delete(int employeeID) {
         databaseConnection.deleteEmployee(employeeID);
+    }
+    
+    public void viewEmployee(int employeeID) {
+        databaseConnection.viewEmployee(employeeID);
     }
     
     public void exit() {

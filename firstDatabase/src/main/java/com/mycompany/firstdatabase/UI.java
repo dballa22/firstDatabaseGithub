@@ -30,10 +30,12 @@ public class UI {
             System.out.println("----------------------------------------");
             System.out.println("Add: Add a user to the database");
             System.out.println("Delete: Delete user from the database");
+            System.out.println("View: View information about an employee");
             System.out.println("Exit: Exits program");
             System.out.println("----------------------------------------");
 
             String input = scanner.nextLine();
+            
             
             //used to exit database and exit program
             if (input.equalsIgnoreCase("Exit")){
@@ -51,6 +53,8 @@ public class UI {
             addEmployee(scanner);
         } else if (input.equalsIgnoreCase("Delete")) {
             deleteEmployee(scanner);
+        } else if (input.equalsIgnoreCase("View")) {
+            viewEmployee(scanner);
         } else {
             System.out.println("Not a valid input.");
         }
@@ -65,7 +69,7 @@ public class UI {
         int employeeID = scanner.nextInt();
         
         this.database.add(firstName, lastName, employeeID);
-        
+        scanner.nextLine();
         
     }
     
@@ -74,6 +78,15 @@ public class UI {
         int employeeID = scanner.nextInt();
         
         this.database.delete(employeeID);
+        scanner.nextLine();
+    }
+    
+    public void viewEmployee(Scanner scanner) {
+        System.out.println("Enter the ID of the employee's information you would like to view:");
+        int employeeID = scanner.nextInt();
+        
+        this.database.viewEmployee(employeeID);
+        scanner.nextLine();
     }
     
     

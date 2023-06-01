@@ -14,13 +14,20 @@ public class Employee {
     private String firstName;
     private String lastName;
     private int ID;
+    private int salary;
+    private String department;
+    private int phoneNumber;
 
-    //constructor when both variables are present
+    //constructor when all variables present
     public Employee(String firstName, String lastName, int ID) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.ID = ID;
+        this.salary = salary;
+        this.department = department;
+        this.phoneNumber = phoneNumber;
     }
+    
 
     public String getFirstName() {
         return firstName;
@@ -45,6 +52,24 @@ public class Employee {
     public void setID(int ID) {
         this.ID = ID;
     }
+    
+    public int getSalary() {
+        return salary;
+    }
+    
+    public void setSalary(int salary) {
+        this.salary = salary;
+    }
+    
+    public String getDepartment() {
+        return department;
+    }
+    
+    public void setDepartment(String department) {
+        this.department = department;
+    }
+    
+    
 
     @Override
     public String toString() {

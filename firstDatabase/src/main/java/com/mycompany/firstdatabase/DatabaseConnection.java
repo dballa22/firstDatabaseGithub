@@ -57,7 +57,7 @@ public class DatabaseConnection {
             try (PreparedStatement statement = connection.prepareStatement(sql)) {
                 statement.setInt(1, employeeID);
                 int rowsAffected = statement.executeUpdate();
-                
+
                 if (rowsAffected > 0) {
                     System.out.println("Employee was sucessfully deleted.");
                 } else {
